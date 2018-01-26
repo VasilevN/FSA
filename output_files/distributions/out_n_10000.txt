@@ -1,0 +1,30 @@
+=============================
+    26-Jan-2018 20:53:25
+=============================
+lambda_m         = 0.000001
+focus_dist_m     = 50.000000
+phi_cnt          = 20
+rho_cnt          = 20
+pattern_min_x_m  = -0.000088
+pattern_max_x_m  = 0.000088
+pattern_min_y_m  = -0.000088
+pattern_max_y_m  = 0.000088
+pattern_step_x_m = 0.000003
+pattern_step_y_m = 0.000003
+=============================
+____________________________
+zone_number      = 10000
+Router_m         = 0.707124
+Rinner_m         = 0.707089
+phi_step_rad     = 0.314159
+rho_step_m       = 0.000002
+size_x           = 60
+size_y           = 60
+=============================
+MAX              = 3.984358
+FWHM             = 0.000025
+SLL              = 0.640579
+SLL/MAX          = 0.160774
+SUM              = 73422.174339
+=============================
+Elapsed time is 0.479526 seconds.
