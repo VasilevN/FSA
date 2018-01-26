@@ -23,8 +23,5 @@ function Uxy_o  = calc_dot( ...
     [RHO, PHI] = meshgrid(rho_m, phi_rad);
 
     Uxy = const_A*exp(const_B.*r01(PHI, RHO)).*RHO;
-
-    
-
     Uxy_o =  trapz(rho_m, trapz(phi_rad,Uxy, 2));
 end

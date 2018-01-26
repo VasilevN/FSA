@@ -19,8 +19,6 @@ function RP_o = calc_radiation_pattern( ...
         error('wrong input pattern parameters');
     end
     Rzone_m       = @(n) sqrt( n*focus_dist_m*lambda_m + (n*lambda_m/2)^2 );
-    % rho = sqrt(x0^2 + y0^2);
-    % phi = atan(y0/x0); 
     tic %!!
     Router_m     = Rzone_m(zone_number);
     Rinner_m     = Rzone_m(zone_number-1);
