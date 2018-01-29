@@ -31,5 +31,5 @@ function Uxy_o  = calc_dot( ...
 
     Uxy   = const_A*exp(const_B.*r01(PHI, RHO)).*RHO;
     Uxy   = Uxy.*exp(-const_B.*RHO.*cos(PHI).*sin(gamma_rad));
-    Uxy_o = trapz(rho_m, trapz(phi_rad,Uxy, 2));
+    Uxy_o = trapz(phi_rad, trapz(rho_m,Uxy, 2));
 end

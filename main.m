@@ -1,27 +1,30 @@
 % TODO: change RP_* for something that will have a shorter name then RP_max_pos_x_m 
 % PARAMETERS :
-path         = './output_files/phaseshift/'; % TODO: fix path
-zone_number  = 10000;
+TURN_ON_AUTOSAVE = true;
+path         = './output_files/resolution_check/n_40000/'; % TODO: fix path
+zone_number  = 40000;
 lambda_m     = 1e-6;
 focus_dist_m = 50;
 phi_cnt      = 20;
 rho_cnt      = 20;
-gamma_rad           = 1e-5;
-log_filename = 'gamma_0_1e-5.txt';
+gamma_rad    = 0;
+log_filename = 'phi_20_n_40000.txt';
 % end of PARAMETERS
 fullpath = [path, log_filename];
 Router_m = sqrt(  zone_number*focus_dist_m*lambda_m    +  ( ( zone_number*lambda_m)/2)^2  );  % outer radius
 L                = lambda_m*focus_dist_m/(2*Router_m);
-pattern_min_x_m  = -20*L/2;
-pattern_max_x_m  =  20*L/2;
-pattern_min_y_m  = -20*L/2;
-pattern_max_y_m  =  20*L/2;
-pattern_step_x_m =  5*L/60;
-pattern_step_y_m =  5*L/60; 
+pattern_min_x_m  = -40*L/2;
+pattern_max_x_m  =  40*L/2;
+pattern_min_y_m  = -40*L/2;
+pattern_max_y_m  =  40*L/2;
+pattern_step_x_m =  20*L/60;
+pattern_step_y_m =  20*L/60; 
 
-delete(fullpath);
-diary(fullpath);
-diary on;
+if(TURN_ON_AUTOSAVE)
+    delete(fullpath);
+    diary(fullpath);
+    diary on;
+end
 %______________________________________________________
 fprintf( '=============================\n'             );
 fprintf( '    %s\n'               ,   datetime('now')  );
@@ -114,7 +117,9 @@ annotation(RP_fig,'textbox',...
 [0.70635080504321 0.48205241023283 0.173186629148354 0.487999985933304],...
      'String',str,...
     'FitBoxToText','on');
-pause(1); % delay for graphics to be plotted 
-saveas(RP_fig, [fullpath(1:(end-4)),'.png']); % TODO: fix that
-saveas(RP_fig, [fullpath(1:(end-4)),'.fig']); % TODO: fix that
-diary off;
+if (TURN_ON_AUTOSAVE)
+    pause(1); % delay for graphics to be plotted 
+    saveas(RP_fig, [fullpath(1:(end-4)),'.png']); % TODO: fix that
+    saveas(RP_fig, [fullpath(1:(end-4)),'.fig']); % TODO: fix that
+    diary off;
+end
